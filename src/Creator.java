@@ -15,11 +15,12 @@ public class Creator {
         Random random = new Random(System.currentTimeMillis());
         int time = 0;
         for (int i = 0; i < total; i++) {
-            int thisGapTime = random.nextInt() % (2 * averageGapTime);
+            int thisGapTime = (int)(random.nextGaussian() * averageGapTime) + averageGapTime;
+            System.out.println(random.nextGaussian());
             if (thisGapTime < 0) {
                 thisGapTime = - thisGapTime;
             }
-            int thisNeedTime = random.nextInt() % (2 * averageNeedTime);
+            int thisNeedTime = (int)(random.nextGaussian() * averageNeedTime) + averageNeedTime;
             if (thisNeedTime < 0) {
                 thisNeedTime = -thisNeedTime;
             } else if (thisNeedTime == 0) {
